@@ -2,7 +2,18 @@ import { useState } from "react";
 import styled from "styled-components";
 
 const Title = styled.h1`
-  margin: 0 0 12px;
+  display: block;
+  width: 100%;
+  margin: 0 0 0 -4px;
+  font-size: 220px;
+  line-height: 1;
+  color: #6d7a8b;
+  text-align: center;
+`;
+const ButtonContainer = styled.div`
+  display: block;
+  width: 100%;
+  text-align: center;
 `;
 const Button = styled.button`
   display: inline-block;
@@ -27,9 +38,9 @@ export const Counter = () => {
   return (
     <>
       <Title>
-        The count is: <span>{count}</span>
+        <span>{count}</span>
       </Title>
-      <div>
+      <ButtonContainer>
         <Button
           onClick={() => setCount(count + 1)}
           disabled={count >= incrementLimit ? true : false}
@@ -44,7 +55,7 @@ export const Counter = () => {
         >
           &#8722;
         </Button>
-      </div>
+      </ButtonContainer>
     </>
   );
 };
