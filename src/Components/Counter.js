@@ -28,6 +28,23 @@ const Button = styled.button`
   background-color: lightcoral;
   border: 1px solid coral;
   border-radius: 3px;
+
+  :active {
+    animation: userFeeback 400ms infinite;
+  }
+
+  @keyframes userFeeback {
+    0%,
+    100% {
+      height: 24px;
+      width: 24px;
+    }
+    50% {
+      height: 26px;
+      width: 26px;
+      color: coral;
+    }
+  }
 `;
 
 export const Counter = () => {
@@ -42,18 +59,18 @@ export const Counter = () => {
       </Title>
       <ButtonContainer>
         <Button
-          onClick={() => setCount(count + 1)}
-          disabled={count >= incrementLimit ? true : false}
-          style={{ opacity: count >= incrementLimit ? "0.5" : "1" }}
-        >
-          &#43;
-        </Button>
-        <Button
           onClick={() => setCount(count - 1)}
           disabled={count <= decrementLimit ? true : false}
           style={{ opacity: count <= decrementLimit ? "0.5" : "1" }}
         >
           &#8722;
+        </Button>
+        <Button
+          onClick={() => setCount(count + 1)}
+          disabled={count >= incrementLimit ? true : false}
+          style={{ opacity: count >= incrementLimit ? "0.5" : "1" }}
+        >
+          &#43;
         </Button>
       </ButtonContainer>
     </>
